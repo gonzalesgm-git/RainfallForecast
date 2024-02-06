@@ -39,7 +39,7 @@ namespace RainfallForecast.API.Controllers.Rainfall
             return Ok(items);
         }
 
-        /// <summary>List of All of Station RainfallInfo</summary>
+        /// <summary>List of All of Station RainfallInfo Readings</summary>
         /// <returns></returns>
         [HttpGet]
         [Route("flood-monitoring/{stationId}/reading/{limit}")]
