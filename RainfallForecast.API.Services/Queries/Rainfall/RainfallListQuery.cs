@@ -1,23 +1,26 @@
-﻿using RainfallForecast.API.Services.Queries.Patterns;
+﻿using Microsoft.Extensions.Logging;
+using RainfailForecast.API.Domain.Model;
+using RainfallForecast.API.Services.Http;
+using RainfallForecast.API.Services.Patterns;
 
 namespace RainfallForecast.API.Services.Queries.Rainfall
 {
 
-    public interface IRainfallListQuery : IQueryAsync<List<RainfallInfo>, int>
+    public interface IRainfallListQuery : IQueryAsync<Result<RainfallInfo>, int>
     {
 
     }
 
-    public class RainfallListQuery : IRainfallListQuery
+    public class RainfallListQuery : ApiClient, IRainfallListQuery
     {
-        public async Task<List<RainfallInfo>> ExecuteAsync(int criteria, CancellationToken cancellationToken = default)
+        public RainfallListQuery(ILogger<RainfallInfo> logger) : base(logger)
         {
-            throw new NotImplementedException();
         }
-    }
-
-    public class RainfallInfo
-    {
-
+        public async Task<Result<RainfallInfo>> ExecuteAsync(int criteria, CancellationToken cancellationToken = default)
+        {
+            var url = $"https://environment.data.gov.uk/flood-monitoring/id/stations?parameter=rainfall&_limit=50";
+            var response = await GetAsync<RainfallInfo>(url, cancellationToken);
+            return HandleApiResult(response);
+        }
     }
 }

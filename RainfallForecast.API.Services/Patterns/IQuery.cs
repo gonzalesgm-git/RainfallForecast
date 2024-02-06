@@ -1,4 +1,4 @@
-﻿namespace RainfallForecast.API.Services.Queries.Patterns
+﻿namespace RainfallForecast.API.Services.Patterns
 {
 
     public interface IQuery { }
@@ -15,12 +15,12 @@
 
     public interface IQueryAsync<TResult> : IQuery
     {
-        Task<TResult> ExecuteAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task<TResult> ExecuteAsync(CancellationToken cancellationToken = default);
     }
 
     public interface IQueryAsync<TResult, in TCriteria> : IQuery
     {
-        Task<TResult> ExecuteAsync(TCriteria criteria, CancellationToken cancellationToken = default(CancellationToken));
+        Task<TResult> ExecuteAsync(TCriteria criteria, CancellationToken cancellationToken = default);
     }
 
 }

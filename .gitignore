@@ -1,3 +1,7 @@
 RainfallForecast/bin/
 RainfallForecast/obj/
 RainfallForecast.API.Services/obj/
+.vs/
+RainfailForecast.API.Domain/bin/
+RainfailForecast.API.Domain/obj/
+RainfallForecast.API.Services/bin/
