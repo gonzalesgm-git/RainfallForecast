@@ -32,7 +32,7 @@ namespace RainfallForecast.API.Controllers.Rainfall
         [HttpGet]
         [Route("flood-monitoring/{stationId}/measures")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(List<StationMeasures>))]
-        public async Task<IActionResult> RainfallInfoByStation(CancellationToken cancellationToken, int stationId = 3680)
+        public async Task<IActionResult> StationRainfallMeasures(CancellationToken cancellationToken, int stationId = 3680)
         {
             var items = await _rainfallListQuery.StationRainfallMeasures(stationId, cancellationToken);
 
@@ -44,7 +44,7 @@ namespace RainfallForecast.API.Controllers.Rainfall
         [HttpGet]
         [Route("flood-monitoring/{stationId}/reading/{limit}")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(List<StationReadings>))]
-        public async Task<IActionResult> AllRe(CancellationToken cancellationToken, int stationId = 3680, int limit = 100)
+        public async Task<IActionResult> StationRainfallReadings(CancellationToken cancellationToken, int stationId = 3680, int limit = 100)
         {
             var items = await _rainfallListQuery.StationRainfallReadings(stationId, limit, cancellationToken);
 

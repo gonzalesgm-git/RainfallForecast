@@ -5,3 +5,7 @@ RainfallForecast.API.Services/obj/
 RainfailForecast.API.Domain/bin/
 RainfailForecast.API.Domain/obj/
 RainfallForecast.API.Services/bin/
+RainfallForecast.Api.Services.Tests/bin/
+RainfallForecast.API.Tests/bin/
+RainfallForecast.API.Tests/obj/
+RainfallForecast.Api.Services.Tests/obj/
