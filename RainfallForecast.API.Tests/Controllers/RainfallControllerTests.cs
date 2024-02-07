@@ -23,7 +23,6 @@ namespace RainfallForecast.API.Tests.Controllers
             Assert.IsType<OkObjectResult>(result);
         }
 
-
         [Fact]
         public async Task StationRainfallMeasures_ReturnsOkResult()
         {
