@@ -13,6 +13,8 @@ This is a simple web api that calls 3 endpoints from UK Flood-monitoring website
 Dependencies
 
     - Uses .Net Core 8.1
+    - Moq
+    - XUnit for testing
     
 How to run the project
 
