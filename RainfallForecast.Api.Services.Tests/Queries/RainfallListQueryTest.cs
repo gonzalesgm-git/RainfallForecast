@@ -45,5 +45,30 @@ namespace RainfallForecast.Api.Services.Tests.Queries
 
             Assert.Equal(2, result.Value.Items.Count());
         }
+
+        [Fact]
+        public async Task StationRainfallReadings()
+        {
+            _rainfallListQuery.Setup(q => q.StationRainfallReadings(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<CancellationToken>()))
+                 .ReturnsAsync(new Result<StationReadings>
+                 {
+                     Value = new StationReadings()
+                     {
+                         Meta = new Meta { Publisher = "Publisher1" },
+                         Items = new List<LatestReading>()
+                         {
+                             new LatestReading
+                             {
+                                 Date = new DateTime().Date.ToString(),
+                                 Measure = "Measure1",
+                             }
+                         }.ToArray()
+                     }
+                 });
+
+            var result = await _rainfallListQuery.Object.StationRainfallReadings(3680, 100, default);
+
+            Assert.Single(result.Value.Items);
+        }
     }
 }
