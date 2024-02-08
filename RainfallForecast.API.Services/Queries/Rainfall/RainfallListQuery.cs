@@ -15,6 +15,7 @@ namespace RainfallForecast.API.Services.Queries.Rainfall
     public class RainfallListQuery : ApiClient, IRainfallListQuery
     {
         const string floodMonitoringUrl = "https://environment.data.gov.uk/flood-monitoring";
+
         public RainfallListQuery(ILogger<Readings> logger) : base(logger)
         {
         }
